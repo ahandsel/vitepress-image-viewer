@@ -22,7 +22,7 @@ npm i @davidingplus/vitepress-image-viewer
 
 ## Usage
 
-### Configuration
+### Configuration & Activation
 
 ```typescript  [docs/.vitepress/theme/index.ts]
 import type { Theme } from 'vitepress'
@@ -37,6 +37,16 @@ export default {
     ImageViewerP(ctx.app) //[!code ++]
   }
 }
+```
+
+This registers the plugin once on the client and mounts the viewer overlay. Every image on the page is automatically enhanced on first load and after navigation.
+
+### Disable the viewer for specific images
+
+If you have an image that should not open in the overlay (for example, a logo or UI control), add the `no-viewer` class. The plugin skips any `img` element with this class when binding click handlers.
+
+```md
+![Logo](/logo.png){.no-viewer}
 ```
 
 ## Examples
